@@ -1,11 +1,19 @@
 version: "3.9"
 services:
+  wed:
+    build: .
+    container_name: fastapi
+    external_links: 
+      - db_postgres:db_postgres
+    volumes:
+      - ./src:/src
+    ports:
+      - "80:80"
   postgres:
     image: postgres:13.3
-    environment:
-      POSTGRES_DB: product
-      POSTGRES_USER: yngcrovi
-      POSTGRES_PASSWORD: qwerfdsa
+    container_name: db_postgres
+    env_file:
+      - path: ./.env
     volumes:
       - .:/docker-entrypoint-initdb.d
     ports:
