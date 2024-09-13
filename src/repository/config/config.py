@@ -7,10 +7,12 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
+
     @property
     def DATABASE_URL_psycopg(self):
         return f"postgresql+psycopg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
     
-    model_config = SettingsConfigDict(env_file='/home/yngcrovi/work/TestExampleBackend/.env')
+    model_config = SettingsConfigDict(env_file='/home/yngcrovi/work/TestExampleBackend/.env', extra='ignore')
+
 
 settings = Settings()

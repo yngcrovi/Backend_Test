@@ -3,7 +3,6 @@ name = "poetry"
 version = "0.1.0"
 description = ""
 authors = ["yngcrovi <crovion@gemail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -15,9 +14,7 @@ psycopg = "^3.2.1"
 sqlalchemy-orm = "^1.2.10"
 pydantic = "^2.9.0"
 datetime = "^5.5"
-jose = "^1.0.0"
 python-jose = "^3.3.0"
-fastapi-filter = "^2.0.0"
 gunicorn = "^23.0.0"
 
 
@@ -25,5 +22,3 @@ gunicorn = "^23.0.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.scripts]
-start-server = "uvicorn main:app --reload"
