@@ -1,24 +1,23 @@
 # Шаги запуска backend-севера
-1) Перейти в папку src/poetry и установить зависимости:
+1) Забилдить docker-compose файл:
 
-    poetry install
+    - sudo docker compose build
 
-2) Скачать image postgres:
+2) Запустить контейнеры fastapi и postgres:
 
-    sudo docker pull postgres
+    - sudo docker compose up -d
 
-3) Создать контейнер docker: 
+- Контейнер fastapi должен находится на 8000 порту, а postgres 5432
 
-    sudo docker run --rm --name product -e POSTGRES_PASSWORD=qwerfdsa -e POSTGRES_USER=yngcrovi -e POSTGRES_DB=product -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
+3) Если по какой-то причине зависимости не установились, перейти в папку src/poetry и установить зависимости:
 
-4) Запустить контейнер:
+    - poetry install
+    - poetry update
 
-    sudo docker run product
+4) Перейти в файл create_table.py, который находится по маршруту src/repository и запустить его отдельно для создания таблиц
 
-5) Запустить docker-compose файл:
+5) Для тестового задания я не стал добавлять .env файл в gitignor и создавать .env.example
 
-    sudo docker compose up -d
+5) Перейти в папку src и запустить сервер:
 
-6) Перейти в папку src и запустить сервер:
-
-    uvicorn main:app --reload --port 8000
+    - uvicorn main:app --reload --port 8000
