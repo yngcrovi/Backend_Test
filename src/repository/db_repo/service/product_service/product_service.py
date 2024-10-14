@@ -1,6 +1,6 @@
-from repository.db_repo.postgre_repo import PostgreSQLRepository
-from repository.table_orm.product import Product
-from ..dto.product_dto import ProductGetDTO, ProductIdDTO, ProductGetWithIdDTO
+from src.repository.db_repo.postgre_repo import PostgreSQLRepository
+from src.repository.table_orm.product import Product
+from src.repository.db_repo.service.dto.product_dto import ProductGetDTO, ProductIdDTO, ProductGetWithIdDTO
 from sqlalchemy import select, case, literal
 
 

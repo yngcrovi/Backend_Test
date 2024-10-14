@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import ForeignKey
-from declarative_base.declarative_base import Base
+from src.repository.table_orm.declarative_base.declarative_base import Base
 import datetime
 
 class RefreshToken(Base): 

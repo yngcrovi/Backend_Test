@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from auth.registration import route as registration
-from auth.log_in_out import route as log_in_out
-from product_endpoint import route as product
+from src.auth.registration import route as registration
+from src.auth.log_in_out import route as log_in_out
+from src.product_endpoint import route as product
 
 app = FastAPI()
 

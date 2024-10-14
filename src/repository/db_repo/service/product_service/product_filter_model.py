@@ -1,5 +1,4 @@
-from repository.table_orm.product import Product
-from .product_service import ProductService
+from src.repository.table_orm.product import Product
 
 table = Product
 

@@ -4,3 +4,4 @@ class UserPostDTO(BaseModel):
     id: int
     username: str
     hash_password: bytes
+    salt: bytes

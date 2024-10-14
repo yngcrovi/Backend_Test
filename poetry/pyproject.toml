@@ -16,6 +16,7 @@ pydantic = "^2.9.0"
 datetime = "^5.5"
 python-jose = "^3.3.0"
 gunicorn = "^23.0.0"
+alembic = "^1.13.3"
 
 
 [build-system]

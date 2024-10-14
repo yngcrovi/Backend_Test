@@ -2,16 +2,24 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y \
+    curl \
+    && apt-get clean
 
-COPY ./src/poetry/pyproject.toml ./pyproject.toml
-COPY ./src ./src
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
+ENV PATH="/root/.local/bin:$PATH"
 
-RUN pip install -U pip setuptools wheel
-RUN pip install poetry
+COPY ./poetry/pyproject.toml ./poetry/poetry.lock ./
 
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-dev 
+RUN pip install --upgrade pip
+
+RUN pip install poetry && poetry install --no-root
+RUN poetry update
 
 COPY . .
+
+EXPOSE 8000
+
+CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 

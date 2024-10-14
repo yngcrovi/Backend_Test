@@ -1,5 +1,5 @@
-from repository.db_repo.postgre_repo import PostgreSQLRepository
-from repository.table_orm.user import User
+from src.repository.db_repo.postgre_repo import PostgreSQLRepository
+from src.repository.table_orm.user import User
 from  ..dto.user_dto import UserPostDTO
 
 
