@@ -25,7 +25,6 @@ class ProductService(PostgreSQLRepository):
 
     async def update_product(self, new_product, old_product):
         result = await self.select_product(old_product, ProductIdDTO)
-        print(result)
         await self.update_data(result.id, new_product)
 
     async def filter_product(self, filter_data: list[list]):

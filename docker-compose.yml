@@ -1,20 +1,29 @@
 version: "3.9"
 services:
-  wed:
+  fastapi:
     build: .
-    container_name: fastapi
+    container_name: fastapi_server_product_test
     external_links: 
-      - db_postgres:db_postgres
+      - postgres_product_test:postgres_product_test
+    depends_on:
+      - postgres
+    networks:
+      - server
     volumes:
       - ./src:/src
     ports:
-      - "80:80"
+      - "8000:8000"
   postgres:
     image: postgres:13.3
-    container_name: db_postgres
+    container_name: postgres_product_test
+    networks:
+      - server
     env_file:
-      - path: ./.env
+      - ./.env
     volumes:
       - .:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
+
+networks:
+  server:

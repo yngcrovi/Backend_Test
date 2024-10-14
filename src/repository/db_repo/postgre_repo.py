@@ -1,5 +1,5 @@
 from repository.config.engine import async_session_factory
-from sqlalchemy import select, func, cast, Integer, and_, update, delete
+from sqlalchemy import select, update, delete
 from .abc_repo import AbstractRepository
 from ..table_orm.declarative_base.declarative_base import Base
 from pydantic import BaseModel
